@@ -29,7 +29,7 @@ const todayQuote = document.querySelector(".main-page #today-quote");
 const todayQuoteContent = todayQuote.querySelector("span:first-child");
 const todayQuoteAuthor = todayQuote.querySelector("span:nth-child(2)");
 
-const randomNumber = Math.round(Math.random() * quotes.length);
+const randomNumber = Math.floor(Math.random() * quotes.length);
 
 todayQuoteContent.innerText = quotes[randomNumber].content;
 todayQuoteAuthor.innerText = quotes[randomNumber].author;
