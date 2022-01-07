@@ -1,9 +1,9 @@
 const loginName = document.querySelectorAll(".login-form input");
 const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
-const loggedInPage = document.querySelector(".loggedin-Page");
+const mainPage = document.querySelector(".main-page");
 
-let userNumber = 1;
+// let userNumber = 1;
 
 //Log-in form
 function checkUserName(event) {
@@ -21,8 +21,9 @@ function checkUserName(event) {
   } else {
     loginForm.classList.add(HIDE_ELEMENT_CLASS);
     signupForm.classList.add(HIDE_ELEMENT_CLASS);
-    loggedInPage.classList.remove(HIDE_ELEMENT_CLASS);
-    loggedInPage.innerText = `Welcome ${userName}`;
+    mainPage.classList.remove(HIDE_ELEMENT_CLASS);
+    const welcomeText = mainPage.querySelector("h1");
+    welcomeText.innerText = `Welcome ${userName}`;
   }
 }
 
