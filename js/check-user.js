@@ -3,27 +3,19 @@ const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const mainPage = document.querySelector(".main-page");
 
-// let userNumber = 1;
-
 //Log-in form
 function checkUserName(event) {
   event.preventDefault();
   const userName = loginName[0].value;
   const userPW = loginName[1].value;
-  const HIDE_ELEMENT_CLASS = "hideElement";
 
   if (localStorage.getItem(userName) === null) {
-    // localStorage.setItem(userName, userNumber);
-    // userNumber += 1;
     alert("There is no Name Here");
-  } else if (localStorage.getItem(userName) !== userPW) {
+  } else if (JSON.parse(localStorage.getItem(userName))[0] !== userPW) {
     alert("Wrong PW, Permisstion Denied");
   } else {
-    loginForm.classList.add(HIDE_ELEMENT_CLASS);
-    signupForm.classList.add(HIDE_ELEMENT_CLASS);
-    mainPage.classList.remove(HIDE_ELEMENT_CLASS);
-    const welcomeText = mainPage.querySelector("h1");
-    welcomeText.innerText = `Welcome ${userName}`;
+    localStorage.setItem(userName, JSON.stringify([userPW, true]));
+    checkLogedIn();
   }
 }
 
@@ -38,7 +30,7 @@ function signupUserInfo(event) {
   if (localStorage.getItem(undifinedUserIDInput.value) === null) {
     localStorage.setItem(
       undifinedUserIDInput.value,
-      undifinedUserPWInput.value
+      JSON.stringify([undifinedUserPWInput.value, false])
     );
     alert(`Sign-up Success. Try Login with "${undifinedUserIDInput.value}"`);
     undifinedUserIDInput.value = "";
@@ -50,3 +42,24 @@ function signupUserInfo(event) {
 }
 
 signupForm.addEventListener("submit", signupUserInfo);
+
+//check localStorage
+
+checkLogedIn();
+
+function checkLogedIn() {
+  const HIDE_ELEMENT_CLASS = "hideElement";
+  for (let i = 0; i < localStorage.length; i++) {
+    if (
+      JSON.parse(localStorage.getItem(Object.keys(localStorage)[i]))[1] == true
+    ) {
+      loginForm.classList.add(HIDE_ELEMENT_CLASS);
+      signupForm.classList.add(HIDE_ELEMENT_CLASS);
+      mainPage.classList.remove(HIDE_ELEMENT_CLASS);
+      const welcomeText = mainPage.querySelector("h1");
+      welcomeText.innerText = `Welcome ${Object.keys(localStorage)[i]}`;
+
+      break;
+    }
+  }
+}
