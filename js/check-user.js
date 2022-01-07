@@ -2,24 +2,43 @@ const loginName = document.querySelectorAll(".login-form input");
 const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const mainPage = document.querySelector(".main-page");
+const logOutForm = document.querySelector(".main-page #log-out");
+
+const userNameKey = Object.keys(localStorage);
+const HIDE_ELEMENT_CLASS = "hideElement";
 
 //Log-in form
-function checkUserName(event) {
+function logIn(event) {
   event.preventDefault();
   const userName = loginName[0].value;
   const userPW = loginName[1].value;
 
   if (localStorage.getItem(userName) === null) {
     alert("There is no Name Here");
+    loginName[0].value = "";
+    loginName[1].value = "";
   } else if (JSON.parse(localStorage.getItem(userName))[0] !== userPW) {
     alert("Wrong PW, Permisstion Denied");
+    loginName[1].value = "";
   } else {
     localStorage.setItem(userName, JSON.stringify([userPW, true]));
     checkLogedIn();
   }
 }
 
-loginForm.addEventListener("submit", checkUserName);
+loginForm.addEventListener("submit", logIn);
+
+function viewMainPage() {
+  loginForm.classList.add(HIDE_ELEMENT_CLASS);
+  signupForm.classList.add(HIDE_ELEMENT_CLASS);
+  mainPage.classList.remove(HIDE_ELEMENT_CLASS);
+}
+
+function hideMainPage() {
+  loginForm.classList.remove(HIDE_ELEMENT_CLASS);
+  signupForm.classList.remove(HIDE_ELEMENT_CLASS);
+  mainPage.classList.add(HIDE_ELEMENT_CLASS);
+}
 
 //Sign-up form
 function signupUserInfo(event) {
@@ -44,22 +63,34 @@ function signupUserInfo(event) {
 signupForm.addEventListener("submit", signupUserInfo);
 
 //check localStorage
-
 checkLogedIn();
 
 function checkLogedIn() {
-  const HIDE_ELEMENT_CLASS = "hideElement";
   for (let i = 0; i < localStorage.length; i++) {
-    if (
-      JSON.parse(localStorage.getItem(Object.keys(localStorage)[i]))[1] == true
-    ) {
-      loginForm.classList.add(HIDE_ELEMENT_CLASS);
-      signupForm.classList.add(HIDE_ELEMENT_CLASS);
-      mainPage.classList.remove(HIDE_ELEMENT_CLASS);
+    if (JSON.parse(localStorage.getItem(userNameKey[i]))[1] == true) {
       const welcomeText = mainPage.querySelector("h1");
-      welcomeText.innerText = `Welcome ${Object.keys(localStorage)[i]}`;
-
+      welcomeText.innerText = `Welcome ${userNameKey[i]}`;
+      viewMainPage();
       break;
     }
   }
 }
+
+// Log out
+function logOutUser() {
+  for (let i = 0; i < localStorage.length; i++) {
+    if (JSON.parse(localStorage.getItem(userNameKey[i]))[1] == true) {
+      localStorage.setItem(
+        userNameKey[i],
+        JSON.stringify([
+          JSON.parse(localStorage.getItem(userNameKey[i]))[0],
+          false,
+        ])
+      );
+      hideMainPage();
+      break;
+    }
+  }
+}
+
+logOutForm.addEventListener("submit", logOutUser);
