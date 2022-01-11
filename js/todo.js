@@ -3,10 +3,6 @@ const todoInput = todoForm.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
 
 function deleteBtn(event) {
-  // let ll = todos.filter((deleteElement) => {
-  //   return spanOfTodo !== deleteElement;
-  // });
-  // todos = ll;
   const listOfTodo = event.target.parentElement;
   listOfTodo.remove();
 }
