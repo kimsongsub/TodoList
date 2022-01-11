@@ -9,6 +9,10 @@ function deleteBtn(event) {
   const liOfTodo = event.target.parentElement;
   const spanOfTodo = liOfTodo.querySelector("span").innerText;
   todos.splice(todos.indexOf(spanOfTodo), 1);
+  // let ll = todos.filter((deleteElement) => {
+  //   return spanOfTodo !== deleteElement;
+  // });
+  // todos = ll;
   saveTodo();
   liOfTodo.remove();
 }
