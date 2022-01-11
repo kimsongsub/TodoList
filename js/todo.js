@@ -32,7 +32,7 @@ function saveTodo() {
   localStorage.setItem(LOCALSTORAGE_TODO_KEY, JSON.stringify(todos));
 }
 
-const todos = [];
+let todos = [];
 
 function handleTodoSubmit(event) {
   event.preventDefault();
