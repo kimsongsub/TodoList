@@ -1,5 +1,8 @@
+import API_KEY from "./setup.js";
+
 const weather = document.querySelector("#weather span:first-child");
 const city = document.querySelector("#weather span:last-child");
+
 function onGetGeoSuccess(position) {
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
