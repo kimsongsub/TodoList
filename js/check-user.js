@@ -3,9 +3,10 @@ const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const mainPage = document.querySelector(".main-page");
 const logOutForm = document.querySelector(".main-page #log-out");
+const body = document.querySelector("body");
 
 const userNameKey = Object.keys(localStorage);
-const HIDE_ELEMENT_CLASS = "hideElement";
+const HIDE_ELEMENT_CLASS = "hide-element";
 
 //Log-in form
 function logIn(event) {
@@ -32,12 +33,16 @@ function viewMainPage() {
   loginForm.classList.add(HIDE_ELEMENT_CLASS);
   signupForm.classList.add(HIDE_ELEMENT_CLASS);
   mainPage.classList.remove(HIDE_ELEMENT_CLASS);
+  body.classList.remove("welcome-page-font");
+  body.classList.add("main-page-font");
 }
 
 function hideMainPage() {
   loginForm.classList.remove(HIDE_ELEMENT_CLASS);
   signupForm.classList.remove(HIDE_ELEMENT_CLASS);
   mainPage.classList.add(HIDE_ELEMENT_CLASS);
+  body.classList.remove("main-page-font");
+  body.classList.add("welcome-page-font");
 }
 
 //Sign-up form

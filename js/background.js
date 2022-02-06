@@ -5,4 +5,7 @@ const randomImg = imgName[Math.floor(Math.random() * imgName.length)];
 const currentImg = document.createElement("img");
 currentImg.src = `img/${randomImg}`;
 
-document.body.appendChild(currentImg);
+const mainPage = document.querySelector(".main-page");
+mainPage.insertBefore(currentImg, mainPage.firstChild);
+// mainPage.appendChild(currentImg);
+currentImg.classList.add("background-img");
