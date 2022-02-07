@@ -14,31 +14,21 @@ h1 {
   display: none;
 }
 
-.header {
-  display: flex;
-  /* padding: 30px; */
-  margin: 10px;
-}
-
-.header > #clock {
-  text-align: right;
-}
-
+/* ----------------- welcome-page ----------------- */
 .welcome-page-font {
   color: black;
-  margin-top: 200px;
+  margin-top: 25vh;
 }
 
 .welcome-page-font form {
-  /* text-align: center; */
-  margin: 50px auto 0px 35vw;
+  margin: 100px auto 0px 35vw;
 }
 
-.welcome-page-font h1 {
-  /* text-align: left; */
-  margin: 0px auto 20px 0vw;
+.welcome-page-font > form > h1 {
+  margin-bottom: 10px;
 }
 
+/* ----------------- main-page ----------------- */
 .main-page-font {
   color: whitesmoke;
 }
@@ -50,7 +40,13 @@ h1 {
   height: 1080px;
 }
 
-#clock {
+.header {
+  display: flex;
+  padding-top: 30px;
+}
+
+.header > #clock {
+  text-align: right;
   font-size: 20px;
 }
 

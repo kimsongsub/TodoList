@@ -7,5 +7,6 @@ currentImg.src = `img/${randomImg}`;
 
 const mainPage = document.querySelector(".main-page");
 mainPage.insertBefore(currentImg, mainPage.firstChild);
-// mainPage.appendChild(currentImg);
 currentImg.classList.add("background-img");
+
+// background.style.background = `url('img/${randomImg}')`;
