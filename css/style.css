@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
 @import url(reset.css);
 
+:root {
+  --main-font-size: 20px;
+}
+
 body {
   font-family: "Black Han Sans", sans-serif;
 }
@@ -37,23 +41,53 @@ h1 {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 1080px;
+  height: 900px;
 }
 
 .header {
   display: flex;
-  padding-top: 30px;
+  justify-content: space-between;
+  padding: 30px 15px 20px 15px;
+  background-color: brown;
+}
+
+.header > #weather {
+  margin-top: 15px;
+  font-size: var(--main-font-size);
 }
 
 .header > #clock {
   text-align: right;
-  font-size: 20px;
+  font-size: var(--main-font-size);
 }
 
-#weather {
-  font-size: 20px;
+#log-out {
+  text-align: right;
+  background-color: aqua;
+}
+
+#todo-form {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: blue;
+}
+
+#todo-list {
+  text-align: center;
+  height: 700px;
+  background-color: palevioletred;
+}
+
+#todo-list > li > button {
+  margin-left: 10px;
+  padding: 0;
+  border: none;
 }
 
 #today-quote {
-  font-size: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: var(--main-font-size);
+  background-color: blueviolet;
 }
