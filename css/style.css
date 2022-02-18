@@ -44,19 +44,19 @@ h1 {
   height: 900px;
 }
 
-.header {
+header {
   display: flex;
   justify-content: space-between;
   padding: 30px 15px 20px 15px;
   background-color: brown;
 }
 
-.header > #weather {
+header > #weather {
   margin-top: 15px;
   font-size: var(--main-font-size);
 }
 
-.header > #clock {
+header > #clock {
   text-align: right;
   font-size: var(--main-font-size);
 }
