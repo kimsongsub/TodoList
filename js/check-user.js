@@ -1,3 +1,5 @@
+export { logedInKey };
+
 const loginName = document.querySelectorAll(".login-form input");
 const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
@@ -7,6 +9,8 @@ const body = document.querySelector("body");
 
 const userNameKey = Object.keys(localStorage);
 const HIDE_ELEMENT_CLASS = "hide-element";
+
+let logedInKey = "";
 
 //Log-in form
 function logIn(event) {
@@ -59,6 +63,7 @@ function signupUserInfo(event) {
     alert(`Sign-up Success. Try Login with "${undifinedUserIDInput.value}"`);
     undifinedUserIDInput.value = "";
     undifinedUserPWInput.value = "";
+    // location.reload();
   } else {
     undifinedUserIDInput.value = "";
     alert("This ID is already exist");
@@ -73,6 +78,7 @@ checkLogedIn();
 function checkLogedIn() {
   for (let i = 0; i < localStorage.length; i++) {
     if (JSON.parse(localStorage.getItem(userNameKey[i]))[1] == true) {
+      logedInKey = userNameKey[i];
       const welcomeText = mainPage.querySelector("h1");
       welcomeText.innerText = `Welcome ${userNameKey[i]}`;
       viewMainPage();
