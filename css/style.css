@@ -19,13 +19,13 @@ h1 {
 }
 
 /* ----------------- welcome-page ----------------- */
+
 .welcome-page-font {
   color: black;
-  margin-top: 25vh;
 }
 
 .welcome-page-font form {
-  margin: 100px auto 0px 35vw;
+  margin: 20vh auto 20vh 25vw;
 }
 
 .welcome-page-font > form > h1 {
@@ -41,7 +41,7 @@ h1 {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 900px;
+  height: 170vh;
 }
 
 header {
@@ -63,20 +63,21 @@ header > #clock {
 
 #log-out {
   text-align: right;
-  background-color: aqua;
 }
 
 #todo-form {
   text-align: center;
   padding-top: 30px;
   padding-bottom: 20px;
-  background-color: blue;
 }
 
 #todo-list {
   text-align: center;
-  height: 700px;
-  background-color: palevioletred;
+  margin: 0px 30vw 0px 30vw;
+  padding-top: 10px;
+  height: 100vh;
+  background-color: rgba(134, 89, 89, 0.4);
+  background-size: 50px 50px;
 }
 
 #todo-list > li > button {
@@ -86,8 +87,10 @@ header > #clock {
 }
 
 #today-quote {
+  margin-top: 20vh;
+  padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
   font-size: var(--main-font-size);
-  background-color: blueviolet;
+  background-color: brown;
 }
