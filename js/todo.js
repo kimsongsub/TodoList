@@ -29,7 +29,7 @@ function printTodos(todoInputValue) {
 
   const buttonOfDeleteTodo = document.createElement("button");
   liOfTodo.appendChild(buttonOfDeleteTodo);
-  buttonOfDeleteTodo.innerText = "✅";
+  buttonOfDeleteTodo.innerText = "❌";
 
   buttonOfDeleteTodo.addEventListener("click", deleteBtn);
 }
