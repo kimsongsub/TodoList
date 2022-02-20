@@ -88,7 +88,8 @@ function checkLogedIn() {
 }
 
 // Log out
-function logOutUser() {
+function logOutUser(event) {
+  event.preventDefault();
   for (let i = 0; i < localStorage.length; i++) {
     if (JSON.parse(localStorage.getItem(userNameKeys[i]))[1] == true) {
       localStorage.setItem(
@@ -102,6 +103,7 @@ function logOutUser() {
       break;
     }
   }
+  loginName[1].value = "";
 }
 
 logOutForm.addEventListener("submit", logOutUser);
