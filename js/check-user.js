@@ -7,7 +7,7 @@ const mainPage = document.querySelector(".main-page");
 const logOutForm = document.querySelector(".main-page #log-out");
 const body = document.querySelector("body");
 
-const userNameKey = Object.keys(localStorage);
+const userNameKeys = Object.keys(localStorage);
 const HIDE_ELEMENT_CLASS = "hide-element";
 
 let logedInKey = "";
@@ -61,9 +61,9 @@ function signupUserInfo(event) {
       JSON.stringify([undifinedUserPWInput.value, false])
     );
     alert(`Sign-up Success. Try Login with "${undifinedUserIDInput.value}"`);
+    loginName[0].value = undifinedUserIDInput.value;
     undifinedUserIDInput.value = "";
     undifinedUserPWInput.value = "";
-    // location.reload();
   } else {
     undifinedUserIDInput.value = "";
     alert("This ID is already exist");
@@ -77,10 +77,10 @@ checkLogedIn();
 
 function checkLogedIn() {
   for (let i = 0; i < localStorage.length; i++) {
-    if (JSON.parse(localStorage.getItem(userNameKey[i]))[1] == true) {
-      logedInKey = userNameKey[i];
+    if (JSON.parse(localStorage.getItem(userNameKeys[i]))[1] == true) {
+      logedInKey = userNameKeys[i];
       const welcomeText = mainPage.querySelector("h1");
-      welcomeText.innerText = `Welcome ${userNameKey[i]}`;
+      welcomeText.innerText = `Welcome ${userNameKeys[i]}`;
       viewMainPage();
       break;
     }
@@ -90,11 +90,11 @@ function checkLogedIn() {
 // Log out
 function logOutUser() {
   for (let i = 0; i < localStorage.length; i++) {
-    if (JSON.parse(localStorage.getItem(userNameKey[i]))[1] == true) {
+    if (JSON.parse(localStorage.getItem(userNameKeys[i]))[1] == true) {
       localStorage.setItem(
-        userNameKey[i],
+        userNameKeys[i],
         JSON.stringify([
-          JSON.parse(localStorage.getItem(userNameKey[i]))[0],
+          JSON.parse(localStorage.getItem(userNameKeys[i]))[0],
           false,
         ])
       );
