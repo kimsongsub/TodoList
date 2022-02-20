@@ -1,10 +1,7 @@
-import { logedInKey } from "./check-user.js";
-
 const todoForm = document.querySelector("#todo-form");
 const todoInput = todoForm.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
 
-const LOCALSTORAGE_TODO_KEY = `${logedInKey}Todos`;
 loadSavedTodos();
 
 function deleteBtn(event) {

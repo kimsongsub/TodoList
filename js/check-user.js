@@ -1,5 +1,3 @@
-export { logedInKey };
-
 const loginName = document.querySelectorAll(".login-form input");
 const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
@@ -9,8 +7,6 @@ const body = document.querySelector("body");
 
 const userNameKeys = Object.keys(localStorage);
 const HIDE_ELEMENT_CLASS = "hide-element";
-
-let logedInKey = "";
 
 //Log-in form
 function logIn(event) {
@@ -78,7 +74,6 @@ checkLogedIn();
 function checkLogedIn() {
   for (let i = 0; i < localStorage.length; i++) {
     if (JSON.parse(localStorage.getItem(userNameKeys[i]))[1] == true) {
-      logedInKey = userNameKeys[i];
       const welcomeText = mainPage.querySelector("h1");
       welcomeText.innerText = `Welcome ${userNameKeys[i]}`;
       viewMainPage();
