@@ -5,7 +5,7 @@ const mainPage = document.querySelector(".main-page");
 const logOutForm = document.querySelector(".main-page #log-out");
 const body = document.querySelector("body");
 
-const userNameKeys = Object.keys(localStorage);
+let userNameKeys = Object.keys(localStorage);
 const HIDE_ELEMENT_CLASS = "hide-element";
 
 //Log-in form
@@ -60,6 +60,7 @@ function signupUserInfo(event) {
     loginName[0].value = undifinedUserIDInput.value;
     undifinedUserIDInput.value = "";
     undifinedUserPWInput.value = "";
+    userNameKeys = Object.keys(localStorage);
   } else {
     undifinedUserIDInput.value = "";
     alert("This ID is already exist");
