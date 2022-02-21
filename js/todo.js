@@ -19,6 +19,8 @@ loginForm.addEventListener("submit", function () {
   loadSavedTodos(checkLogedIn2());
 });
 
+loginForm.addEventListener("submit", initializeTodos);
+
 function deleteBtn(event) {
   const listOfTodo = event.target.parentElement;
   listOfTodo.remove();
