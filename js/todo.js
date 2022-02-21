@@ -2,39 +2,41 @@ const todoForm = document.querySelector("#todo-form");
 const todoInput = todoForm.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
 
-const userNameKeys2 = Object.keys(localStorage);
-// const LOCALSTORAGE_TODO_KEY = "Todos";
+let todos = [];
 
+initializeTodos();
 loadSavedTodos(checkLogedIn2());
 
 function checkLogedIn2() {
   for (let i = 0; i < localStorage.length; i++) {
-    if (JSON.parse(localStorage.getItem(userNameKeys2[i]))[1] == true) {
-      return `${userNameKeys2[i]}Todos`;
+    if (JSON.parse(localStorage.getItem(userNameKeys[i]))[1] == true) {
+      return `${userNameKeys[i]}Todos`;
     }
   }
 }
 
+loginForm.addEventListener("submit", function () {
+  loadSavedTodos(checkLogedIn2());
+});
+
 function deleteBtn(event) {
   const listOfTodo = event.target.parentElement;
   listOfTodo.remove();
-  const liOfTodo = event.target.parentElement;
-  const spanOfTodo = liOfTodo.querySelector("span").innerText;
+  const spanOfTodo = listOfTodo.querySelector("span").innerText;
   todos.splice(todos.indexOf(spanOfTodo), 1);
   saveTodo(checkLogedIn2());
-  liOfTodo.remove();
 }
 
 function printTodos(todoInputValue) {
-  const liOfTodo = document.createElement("li");
-  todoList.appendChild(liOfTodo);
+  const listOfTodo = document.createElement("li");
+  todoList.appendChild(listOfTodo);
 
   const spanOfTodo = document.createElement("span");
-  liOfTodo.appendChild(spanOfTodo);
+  listOfTodo.appendChild(spanOfTodo);
   spanOfTodo.innerText = todoInputValue;
 
   const buttonOfDeleteTodo = document.createElement("button");
-  liOfTodo.appendChild(buttonOfDeleteTodo);
+  listOfTodo.appendChild(buttonOfDeleteTodo);
   buttonOfDeleteTodo.innerText = "❌";
 
   buttonOfDeleteTodo.addEventListener("click", deleteBtn);
@@ -44,10 +46,10 @@ function saveTodo(userKeyName) {
   localStorage.setItem(userKeyName, JSON.stringify(todos));
 }
 
-let todos = [];
-
-if (JSON.parse(localStorage.getItem(checkLogedIn2()))) {
-  todos = JSON.parse(localStorage.getItem(checkLogedIn2()));
+function initializeTodos() {
+  if (JSON.parse(localStorage.getItem(checkLogedIn2()))) {
+    todos = JSON.parse(localStorage.getItem(checkLogedIn2()));
+  }
 }
 
 function handleTodoSubmit(event) {

@@ -98,6 +98,10 @@ function logOutUser(event) {
       break;
     }
   }
+  const todoLists = document.querySelectorAll("#todo-list > li");
+  todoLists.forEach((todoList) => {
+    todoList.remove();
+  });
   loginName[1].value = "";
 }
 
