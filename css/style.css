@@ -72,6 +72,10 @@ header > #clock {
   padding-bottom: 20px;
 }
 
+#todo-btn {
+  padding: 0;
+}
+
 #todo-list {
   text-align: center;
   margin: 20px 30vw 0px 30vw;
