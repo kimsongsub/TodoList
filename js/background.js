@@ -1,4 +1,4 @@
-import { imgName } from "./setup.js";
+// import { imgName } from "./setup.js";
 
 const imgName = [
   "erol-ahmed-_CeW6TRUWws-unsplash.jpg",
