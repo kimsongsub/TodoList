@@ -51,6 +51,8 @@ function saveTodo(userKeyName) {
 function initializeTodos() {
   if (JSON.parse(localStorage.getItem(checkLogedIn2()))) {
     todos = JSON.parse(localStorage.getItem(checkLogedIn2()));
+  } else {
+    todos = [];
   }
 }
 
