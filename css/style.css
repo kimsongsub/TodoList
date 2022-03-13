@@ -8,6 +8,7 @@
 body {
   font-family: "Black Han Sans", sans-serif;
   text-shadow: 1px 1px 1px #000;
+  font-size: var(--main-font-size);
 }
 
 h1 {
@@ -54,12 +55,10 @@ header {
 
 header > #weather {
   margin-top: 15px;
-  font-size: var(--main-font-size);
 }
 
 header > #clock {
   text-align: right;
-  font-size: var(--main-font-size);
 }
 
 #log-out {
@@ -92,7 +91,6 @@ header > #clock {
 }
 
 #todo-list > li {
-  font-size: var(--main-font-size);
   margin-bottom: 20px;
 }
 
@@ -101,6 +99,37 @@ header > #clock {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
-  font-size: var(--main-font-size);
   background-color: brown;
+}
+
+/* -------------------- media query --------------------- */
+
+@media screen and (max-width: 900px) {
+  body {
+    font-size: calc(var(--main-font-size) / 1.5);
+  }
+
+  h1 {
+    font-size: calc(var(--main-font-size) * 2 / 1.5);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    font-size: calc(var(--main-font-size) / 2);
+  }
+
+  h1 {
+    font-size: calc(var(--main-font-size) * 2 / 2);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: calc(var(--main-font-size) / 2.3);
+  }
+
+  h1 {
+    font-size: calc(var(--main-font-size) * 2 / 2.3);
+  }
 }
