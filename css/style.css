@@ -43,7 +43,7 @@ h1 {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 170vh;
+  height: 150vh;
 }
 
 header {
@@ -94,8 +94,8 @@ header > #clock {
   margin-bottom: 20px;
 }
 
-#today-quote {
-  margin-top: 20vh;
+footer {
+  /* margin-top: 20vh; */
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
@@ -104,7 +104,7 @@ header > #clock {
 
 /* -------------------- media query --------------------- */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 970px) {
   body {
     font-size: calc(var(--main-font-size) / 1.5);
   }
@@ -132,14 +132,14 @@ header > #clock {
   h1 {
     font-size: calc(var(--main-font-size) * 2 / 2.3);
   }
+}
 
-  @media screen and (max-width: 420px) {
-    body {
-      font-size: calc(var(--main-font-size) / 4);
-    }
+@media screen and (max-width: 420px) {
+  body {
+    font-size: calc(var(--main-font-size) / 4);
+  }
 
-    h1 {
-      font-size: calc(var(--main-font-size) * 2 / 4);
-    }
+  h1 {
+    font-size: calc(var(--main-font-size) * 2 / 4);
   }
 }
